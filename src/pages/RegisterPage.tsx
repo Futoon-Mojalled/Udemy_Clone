@@ -57,11 +57,11 @@ function RegisterPage() {
                                 <input type="password" className="block w-full px-4 py-4 pt-5 font-semibold appearance-none floating_filled focus:font-semibold focus:outline-none focus:ring-0 order-600 peer" placeholder=" " name='user-password' value={password} onChange={(e) => setPassword(e.target.value)} />
                                 <label htmlFor="floating_filled" className="absolute font-semibold duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-3.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 "> Password </label>
                             </div>
-                            <div className='mb-4 font-semibold py-3 w-full text-center bg-[#A435F0] hover:bg-[#8710D8] text-[#FFFFFF]'><button id='signup-btn'>Sign up</button></div>
+                            <div className='text-[15.5px] mb-4 font-[650] py-3 w-full text-center bg-[#A435F0] hover:bg-[#8710D8] text-[#FFFFFF]'><button id='signup-btn'>Sign up</button></div>
                         </form>
                     </div>
                     <div className='py-3.5 bg-[#F7F9FA]'>
-                        <p className='font-medium text-center'>Already have an account? <Link to="/login" className='font-semibold underline text-[#5022C3] hover:text-[#3B198F]'>Log in</Link></p>
+                        <p className='text-[15.5px] font-[550] text-center'>Already have an account? <Link to="/login" className='font-semibold underline text-[#5022C3] hover:text-[#3B198F]'>Log in</Link></p>
                     </div>
                 </div>
             </div>

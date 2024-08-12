@@ -19,8 +19,8 @@ function SubFooter() {
         </div>
       </div>
       <hr className="border-[#3E4143] w-full" />
-      </div>
-        )
-    }
-    
-    export default SubFooter
+    </div>
+  )
+}
+
+export default SubFooter

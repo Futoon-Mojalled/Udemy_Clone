@@ -6,13 +6,11 @@ export default {
   theme: {
     extend: {
       colors:{
-        textGray: '#2d2f31'
+        textGray: '#2D2F31'
       },
-      // fontFamily: {
-      //   'text': ['"Udemy Sans"', '"SF Pro Text"', '-apple-system', 'BlinkMacSystemFont', 'Roboto', '"Segoe UI"', 'Helvetica', 'Arial', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"'],
-      //   'heading': ['"Udemy Sans"', '-apple-system', 'BlinkMacSystemFont', 'Roboto', '"Segoe UI"', 'Helvetica', 'Arial', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"'],
-      //   'heading-serif': ['SuisseWorks', 'Georgia', 'Times', '"Times New Roman"', 'serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"'],
-      // },
+      fontFamily: {
+        'times': ['Times New Roman', 'serif'],
+      },
     },
   },
   plugins: [
