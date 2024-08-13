@@ -43,12 +43,12 @@ function LoginPage() {
           <div>
             <form onSubmit={handleLogin}>
               <div className="relative mb-2 w-full border border-[#101011]">
-                <input type="email" className="block w-full px-4 py-4 pt-5 font-semibold appearance-none floating_filled focus:font-semibold focus:outline-none focus:ring-0 order-600 peer" placeholder=" " name='user-email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="email" className= "block w-full px-4 py-4 pt-5 font-semibold appearance-none floating_filled focus:font-semibold focus:outline-none focus:ring-0 order-600 peer" placeholder=" " name='user-email' value={email} onChange={(e) => setEmail(e.target.value)} />
                 <label htmlFor="floating_filled" className="absolute font-semibold duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-3.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 "> Email </label>
               </div>
               <div className="relative mb-[14px] w-full border border-[#101011]">
                 <input type="password" className="block w-full px-4 py-4 pt-5 font-semibold appearance-none floating_filled focus:font-semibold focus:outline-none focus:ring-0 order-600 peer" placeholder=" " name='user-password' value={password} onChange={(e) => setPassword(e.target.value)} />
-                <label htmlFor="floating_filled" className="absolute font-semibold duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-3.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 "> Password </label>
+                <label htmlFor="floating_filled" className="absolute nscfont-semibold duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-3.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 "> Password </label>
               </div>
               <div className='text-[15.5px] mb-4 font-[650] py-3 w-full text-center bg-[#A435F0] hover:bg-[#8710D8] text-[#FFFFFF]'><button id='signup-btn'>Log in</button></div>
             </form>

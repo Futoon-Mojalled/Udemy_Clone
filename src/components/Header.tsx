@@ -7,7 +7,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 
 function Header() {
     return (
-        <div className="flex font-[500] flex-row justify-between h-[72px] px-6 items-center shadow-bottom text-[13.5px] leading-[19.6px]">
+        <div className="flex font-[500] flex-row justify-between h-[72px] px-6 items-center shadow-bottom text-[13.5px] leading-[19.6px] z-[99999] relative">
             <Link to="/home"><img src={Logo} alt="Udemy Logo" className='h-[34px] w-[91px]' /></Link>
             <button className='hover:text-[#5022CF]'>Categories</button>
             <div className='search-container'>
