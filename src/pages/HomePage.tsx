@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import { Course } from './App';
+import { Course } from '../App'; // Ensure correct import path
 
 import HomeBanner2 from '../assets/HomeBanner2.jpg';
 
@@ -99,6 +99,8 @@ function HomePage({ courses, setCourses }: HomePageProps) {
         </div>
       </div>
 
+
+
       {/* --------------------- Courses --------------------- */}
       <div className="mt-10 px-9">
         <div className="px-4">
@@ -109,26 +111,21 @@ function HomePage({ courses, setCourses }: HomePageProps) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 m-4 mt-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-3">
-          {courses.map((course, index) => ( // Add index here
-            <Link to={`/Course/${course.id}`} key={index} state={{ course }}>
-              <div className="flex-1 pb-1 mb-2">
-                <img
-                  src={course.courseImg}
-                  alt={course.courseName}
-                  className="w-full h-auto border border-[#D1D7DC] mb-[6px]"
-                />
-                <p className="font-bold text-[16px] line-clamp-2 overflow-hidden">
+      <div className="grid grid-cols-1 m-4 mt-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-3">
+        {courses.map((course) => (
+          <Link to={`/Course/${course.id}`} key={course.id}>
+            <div className="flex-1 pb-1 mb-2">
+              <img src={course.courseImg} alt={course.courseName} className="w-full h-auto border border-[#D1D7DC] mb-[6px]" />
+              <p className="font-bold text-[16px] line-clamp-2 overflow-hidden">
                   {course.courseName}
                 </p>
                 <p className="text-[#6A6F73]">{course.courseInstructor}</p>
                 <p className="font-bold text-[16px] mt-1">{`$${course.price}`}</p>
               </div>
-            </Link>
-          ))}
-        </div>
+          </Link>
+        ))}
       </div>
-
+      </div>
       {/* --------------------- Categories --------------------- */}
       <div className="ml-[52px] mt-16 mb-20">
         <p className="text-[32px] font-[600]">Top categories</p>
@@ -181,6 +178,7 @@ function HomePage({ courses, setCourses }: HomePageProps) {
           </div>
         </div>
       </div>
+
     </div>
   );
 }

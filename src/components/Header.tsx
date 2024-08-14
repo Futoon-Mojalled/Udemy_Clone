@@ -16,18 +16,16 @@ function Header() {
             </div>
             <button className='hover:text-[#5022CF]'>Udemy Business</button>
             <button className='hover:text-[#5022CF]'>Teach on Udemy</button>
-            <Link to="/signup">
+            <Link to="/cart">
                 <button className='pt-1'>
-                    <i className="fa-solid fa-cart-shopping"></i>
-                    <div><i className="fa-solid fa-cart-shopping"></i></div>
-                    <MdOutlineShoppingCart size={25} className='fill-[[#2D2F31] hover:fill-[#5022C3]' />
+                    <MdOutlineShoppingCart size={25} className='fill-[#2D2F31] hover:fill-[#5022C3]' />
                 </button>
             </Link>
             <Link to="/login"><button className='hover:bg-[#E3E7EA] border border-[#2D2F31] font-bold px-[16px] py-[9.3px]'>Log in</button></Link>
             <Link to="/signup"><button className='hover:bg-[#3E4143] border border-[#2D2F31] bg-[#2D2F31] text-[#FFFFFF] font-bold px-[15px] py-[9.3px] -ml-[12px] -mr-[12px]'>Sign up</button></Link>
             <button className='border border-[#2D2F31] p-[9.3px] hover:bg-[#E3E7EA]'><img src={LanguageIcon} alt="Language Icon" className='size-4' /></button>
         </div>
-    )
+    );
 }
 
-export default Header
+export default Header;
