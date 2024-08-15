@@ -11,9 +11,12 @@ interface CourseDetailsProps {
 }
 
 function CourseDetails({ courses, addToCart }: CourseDetailsProps) {
+  // Retrieves the courseId parameter from the URL to identify which course's details should be displayed.
   const { courseId } = useParams<{ courseId: string }>();
+  // Searches through the courses array to find the course that matches the courseId from the URL.
   const course = courses.find((course) => course.id.toString() === courseId);
 
+  // error handling
   if (!course) {
     return <div className='font-medium text-[18px] mb-7'>Course not found</div>;
   }

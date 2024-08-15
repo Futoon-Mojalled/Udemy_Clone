@@ -9,7 +9,7 @@ function Header() {
     return (
         <div className="flex font-[500] flex-row justify-between h-[72px] px-6 items-center shadow-bottom text-[13.5px] leading-[19.6px] z-[99999] relative">
 
-            <Link to="/home"><img src={Logo} alt="Udemy Logo" className='h-[34px] w-[91px]' /></Link>
+            <Link to="/"><img src={Logo} alt="Udemy Logo" className='h-[34px] w-[91px]' /></Link>
 
             <button className='hover:text-[#5022CF]'>Categories</button>
 
@@ -32,7 +32,7 @@ function Header() {
 
             <Link to="/signup"><button className='hover:bg-[#3E4143] border border-[#2D2F31] bg-[#2D2F31] text-[#FFFFFF] font-bold px-[15px] py-[9.3px] -ml-[12px] -mr-[12px]'>Sign up</button></Link>
 
-            <button className='border border-[#2D2F31] p-[9.3px] hover:bg-[#E3E7EA]'><img src={LanguageIcon} alt="Language Icon" className='size-4' /></button>
+            <button className='border border-[#2D2F31] p-[10px] hover:bg-[#E3E7EA] '><img src={LanguageIcon} alt="Language Icon" className='size-[17px]' /></button>
 
         </div>
     );

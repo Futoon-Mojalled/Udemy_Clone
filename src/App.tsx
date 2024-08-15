@@ -15,11 +15,11 @@ export interface Course {
   courseDesc: string;
   courseImg: string;
   courseInstructor: string;
-  price: string; // Ensure that price is included in the Course interface
+  price: string;
 }
 
 interface CartItem {
-  id: number; // Changed from string to number to match the Course id
+  id: number;
   title: string;
   instructor: string;
   price: string;
@@ -32,7 +32,6 @@ export default function App() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   const addToCart = (course: Course) => {
-    console.log('Adding to cart:', course); // Debug line
     const cartItem: CartItem = {
       id: course.id,
       title: course.courseName,
@@ -41,8 +40,10 @@ export default function App() {
       image: course.courseImg,
     };
     setCartItems([...cartItems, cartItem]);
+    alert(`Course added to cart successfully!`)
   };
-
+  
+  //filter method creates a new array containing only the items that pass a specific test.
   const removeFromCart = (courseId: number) => {
     setCartItems(cartItems.filter((item) => item.id !== courseId));
   };
@@ -52,7 +53,7 @@ export default function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/home" element={<HomePage courses={courses} setCourses={setCourses} />} />
+          <Route path="/" element={<HomePage courses={courses} setCourses={setCourses} />} />
           <Route path="/signup" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/course/:courseId" element={<CourseDetails courses={courses} addToCart={addToCart} />} />

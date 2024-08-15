@@ -20,7 +20,7 @@ function LoginPage() {
       alert('Log in successfully!');
       setEmail('')
       setPassword('')
-      navigate('/home')
+      navigate('/')
     } catch (error) {
       alert(error.massage);
     }

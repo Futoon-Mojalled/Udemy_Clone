@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet'; //Library allows manage changes to document head
 import { Link } from 'react-router-dom';
-import { Course } from '../App'; // Ensure correct import path
+import { Course } from '../App';
 import Categories from '../components/Categories';
 
 import HomeBanner2 from '../assets/HomeBanner2.jpg';
-
 import homeImage1 from '../assets/homeImage1.svg';
 import homeImage2 from '../assets/homeImage2.svg';
 import homeImage3 from '../assets/homeImage3.svg';
@@ -21,26 +20,29 @@ interface HomePageProps {
 }
 
 function HomePage({ courses, setCourses }: HomePageProps) {
+  // YouTube API Integration
   const apiKey = 'AIzaSyBYzGa6xH7lREg2ybYtG13Videzt7Z28gQ';
   const searchQuery = 'programming+course|web+development+course|data+science+full+course';
   const maxResults = 15;
   const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(searchQuery)}&type=video&maxResults=${maxResults}&key=${apiKey}`;
 
+  //Fetching Courses
   async function fetchCourses() {
     try {
       const response = await fetch(apiUrl);
       const data = await response.json();
 
+      //Maps the API response into an array of Course objects
       const formattedCourses: Course[] = data.items.map((course: any, index: number) => ({
-        id: index, // Use index as a temporary unique identifier
+        id: index,
         courseName: course.snippet.title,
         courseDesc: course.snippet.description,
         courseImg: course.snippet.thumbnails.high.url,
         courseInstructor: course.snippet.channelTitle,
         price: generateRandomPrice()
       }));
-
       setCourses(formattedCourses);
+      
     } catch (error) {
       console.error('Error fetching courses data:', error);
     }
@@ -49,7 +51,8 @@ function HomePage({ courses, setCourses }: HomePageProps) {
   useEffect(() => {
     fetchCourses();
   }, []);
-
+  
+  //Generating Random Prices
   const generateRandomPrice = (): string => {
     const randomPrice = Math.floor(Math.random() * (119 - 29 + 1)) + 29;
     return `${randomPrice}.99`;
@@ -61,11 +64,10 @@ function HomePage({ courses, setCourses }: HomePageProps) {
         <title>Udemy</title>
       </Helmet>
 
-      {/* --------------------- HomeBanner --------------------- */}
+      {/* -------------------- HomeBanner -------------------- */}
       <div
         style={{ backgroundImage: `url(${HomeBanner2})` }}
-        className="relative w-full bg-center bg-cover h-[410px]"
-      >
+        className="relative w-full bg-center bg-cover h-[410px]">
         <div className="shadow-lg absolute top-20 left-20 text-[#2D2F31] pt-4 pl-8 pr-5 w-[480px] h-[170px] bg-[#FFFFFF]">
           <h1 className="font-times font-bold text-[40px]">Learning that gets you</h1>
           <p className="font-[530] text-[16px]">
@@ -74,7 +76,7 @@ function HomePage({ courses, setCourses }: HomePageProps) {
         </div>
       </div>
 
-      {/* --------------------- CompaniesBanner --------------------- */}
+      {/* -------------------- CompaniesBanner -------------------- */}
       <div className="bg-[#F7F9FA] mt-12 w-full h-[215px] py-12">
         <p className="text-[#6A6F73] text-[19px] font-[480] flex justify-center">
           Trusted by over 16,000 companies and millions of learners around the world
@@ -91,7 +93,7 @@ function HomePage({ courses, setCourses }: HomePageProps) {
         </div>
       </div>
 
-      {/* --------------------- Courses --------------------- */}
+      {/* -------------------- Courses -------------------- */}
       <div className="mt-10 px-9">
         <div className="px-4">
           <h1 className="text-[39px] font-bold font-times">A broad selection of courses</h1>
@@ -101,6 +103,7 @@ function HomePage({ courses, setCourses }: HomePageProps) {
           </p>
         </div>
 
+        {/* Mapping and Displaying Courses */}
         <div className="grid grid-cols-1 m-4 mt-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-3">
           {courses.map((course) => (
             <Link to={`/Course/${course.id}`} key={course.id}>
@@ -115,7 +118,7 @@ function HomePage({ courses, setCourses }: HomePageProps) {
         </div>
       </div>
 
-      {/* --------------------- Categories --------------------- */}
+      {/* Categories */}
       <Categories />
 
     </>
