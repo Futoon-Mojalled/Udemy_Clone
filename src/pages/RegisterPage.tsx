@@ -36,9 +36,11 @@ function RegisterPage() {
                 <Helmet>
                     <title>Sign up and start learning | Udemy</title>
                 </Helmet>
+
                 <div className="place-self-center">
                     <img src={logInImg} alt="logInImg" className='size-11.5/12 ml-1.5' />
                 </div>
+
                 <div className="place-items-start pr-24 pl-[118px] pt-9 mt-6">
                     <div>
                         <h1 className="mb-5 text-[29.6px] px-2 font-[720]">Sign up and start learning</h1>
@@ -64,7 +66,9 @@ function RegisterPage() {
                         <p className='text-[15.5px] font-[550] text-center'>Already have an account? <Link to="/login" className='font-semibold underline text-[#5022C3] hover:text-[#3B198F]'>Log in</Link></p>
                     </div>
                 </div>
+
             </div>
+
             <SubFooter />
         </>
     )

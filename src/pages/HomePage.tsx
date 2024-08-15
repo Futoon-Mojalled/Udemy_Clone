@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { Course } from '../App'; // Ensure correct import path
+import Categories from '../components/Categories';
 
 import HomeBanner2 from '../assets/HomeBanner2.jpg';
 
@@ -14,22 +15,13 @@ import homeImage6 from '../assets/homeImage6.svg';
 import homeImage7 from '../assets/homeImage7.svg';
 import homeImage8 from '../assets/homeImage8.svg';
 
-import Category1 from '../assets/Categories/Category1.jpg';
-import Category2 from '../assets/Categories/Category2.jpg';
-import Category3 from '../assets/Categories/Category3.jpg';
-import Category4 from '../assets/Categories/Category4.jpg';
-import Category5 from '../assets/Categories/Category5.jpg';
-import Category6 from '../assets/Categories/Category6.jpg';
-import Category7 from '../assets/Categories/Category7.jpg';
-import Category8 from '../assets/Categories/Category8.jpg';
-
 interface HomePageProps {
   courses: Course[];
   setCourses: React.Dispatch<React.SetStateAction<Course[]>>;
 }
 
 function HomePage({ courses, setCourses }: HomePageProps) {
-  const apiKey = 'AIzaSyCULx0EyynZLPikq0eSogYzDlNG4I5SlKo';
+  const apiKey = 'AIzaSyBYzGa6xH7lREg2ybYtG13Videzt7Z28gQ';
   const searchQuery = 'programming+course|web+development+course|data+science+full+course';
   const maxResults = 15;
   const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(searchQuery)}&type=video&maxResults=${maxResults}&key=${apiKey}`;
@@ -64,7 +56,7 @@ function HomePage({ courses, setCourses }: HomePageProps) {
   };
 
   return (
-    <div>
+    <>
       <Helmet>
         <title>Udemy</title>
       </Helmet>
@@ -99,8 +91,6 @@ function HomePage({ courses, setCourses }: HomePageProps) {
         </div>
       </div>
 
-
-
       {/* --------------------- Courses --------------------- */}
       <div className="mt-10 px-9">
         <div className="px-4">
@@ -111,75 +101,24 @@ function HomePage({ courses, setCourses }: HomePageProps) {
           </p>
         </div>
 
-      <div className="grid grid-cols-1 m-4 mt-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-3">
-        {courses.map((course) => (
-          <Link to={`/Course/${course.id}`} key={course.id}>
-            <div className="flex-1 pb-1 mb-2">
-              <img src={course.courseImg} alt={course.courseName} className="w-full h-auto border border-[#D1D7DC] mb-[6px]" />
-              <p className="font-bold text-[16px] line-clamp-2 overflow-hidden">
-                  {course.courseName}
-                </p>
+        <div className="grid grid-cols-1 m-4 mt-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-3">
+          {courses.map((course) => (
+            <Link to={`/Course/${course.id}`} key={course.id}>
+              <div className="flex-1 pb-1 mb-2">
+                <img src={course.courseImg} alt={course.courseName} className="w-full h-auto border border-[#D1D7DC] mb-[6px]" />
+                <p className="font-bold text-[16px] line-clamp-2 overflow-hidden">{course.courseName}</p>
                 <p className="text-[#6A6F73]">{course.courseInstructor}</p>
                 <p className="font-bold text-[16px] mt-1">{`$${course.price}`}</p>
               </div>
-          </Link>
-        ))}
-      </div>
-      </div>
-      {/* --------------------- Categories --------------------- */}
-      <div className="ml-[52px] mt-16 mb-20">
-        <p className="text-[32px] font-[600]">Top categories</p>
-
-        <div className="flex flex-row justify-between mt-5 mr-6">
-          <div className="flex items-start flex-1">
-            <div className="flex flex-col flex-1 mr-2">
-              <div className="flex-1 pb-2 mb-3">
-                <img src={Category1} className="w-[300px] h-[300px] mb-[6px]" />
-                <p className="font-bold text-[17.5px]">Design</p>
-              </div>
-              <div className="flex-1 pb-2 mb-3">
-                <img src={Category5} className="mb-[6px] w-[300px] h-[300px]" />
-                <p className="font-bold text-[17.5px]">Personal Development</p>
-              </div>
-            </div>
-
-            <div className="flex flex-col flex-1 mr-2">
-              <div className="flex-1 pb-2 mb-3">
-                <img src={Category2} className="w-[300px] h-[300px] mb-[6px]" />
-                <p className="font-bold text-[17.5px]">Development</p>
-              </div>
-              <div className="flex-1 pb-2 mb-3">
-                <img src={Category6} className="mb-[6px] w-[300px] h-[300px]" />
-                <p className="font-bold text-[17.5px]">Business</p>
-              </div>
-            </div>
-
-            <div className="flex flex-col flex-1 mr-2">
-              <div className="flex-1 pb-2 mb-3">
-                <img src={Category3} className="w-[300px] h-[300px] mb-[6px]" />
-                <p className="font-bold text-[17.5px]">IT and Software</p>
-              </div>
-              <div className="flex-1 pb-2 mb-3">
-                <img src={Category7} className="mb-[6px] w-[300px] h-[300px]" />
-                <p className="font-bold text-[17.5px]">Music</p>
-              </div>
-            </div>
-
-            <div className="flex flex-col flex-1 mr-2">
-              <div className="flex-1 pb-2 mb-3">
-                <img src={Category4} className="w-[300px] h-[300px] mb-[6px]" />
-                <p className="font-bold text-[17.5px]">Design</p>
-              </div>
-              <div className="flex-1 pb-2 mb-3">
-                <img src={Category8} className="mb-[6px] w-[300px] h-[300px]" />
-                <p className="font-bold text-[17.5px]">Personal Development</p>
-              </div>
-            </div>
-          </div>
+            </Link>
+          ))}
         </div>
       </div>
 
-    </div>
+      {/* --------------------- Categories --------------------- */}
+      <Categories />
+
+    </>
   );
 }
 
